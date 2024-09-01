@@ -28,7 +28,7 @@ import aiSearchData from "@/hooks/aiSearch-data"
 export function AiSearchTab() {
     const aiData = aiSearchData((state) => state.item)
     return (
-        <Card className="w-[600px] -mt-24">
+        <Card className="w-[500px] ">
             <CardHeader>
                 <CardDescription>RECOMMENDED FOR YOU</CardDescription>
             </CardHeader>

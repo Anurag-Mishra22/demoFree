@@ -5,6 +5,8 @@ import newRequest from "@/features/auth/newRequest";
 import { useRouter } from "next/navigation";
 import toast from "react-hot-toast";
 import Link from "next/link";
+import Image from "next/image";
+import { cn } from "@/lib/utils";
 const UserButton = () => {
     const currentUser = JSON.parse(localStorage.getItem('currentUser')!);
     const router = useRouter();
@@ -26,13 +28,24 @@ const UserButton = () => {
                 currentUser ? (
                     <Popover >
                         <PopoverTrigger asChild>
-                            <Button className="rounded-xl shadow-lg hover:scale-105">
-                                {currentUser.username}
-                            </Button>
+                            <Image
+                                src={cn(
+                                    currentUser?.profilePicture || "https://utfs.io/f/2d7806fe-d61b-4ea9-aaac-284f9764ca8f-599egd.png"
+                                )}
+                                alt="Profile Picture"
+                                width={40}
+                                height={40}
+                                className="rounded-full cursor-pointer"
+                            />
                         </PopoverTrigger>
-                        <PopoverContent className="w-96">
-                            <div>
-                                <Button className="rounded-xl shadow-lg hover:scale-105" onClick={handleLogout}>
+                        <PopoverContent className="w-56">
+                            <div className="flex flex-col gap-y-2">
+                                <p>{currentUser?.username}</p>
+                                <Button variant="ghost" className="" onClick={() => router.push("/dashboard")}>
+
+                                    DashBoard
+                                </Button>
+                                <Button className="" onClick={handleLogout}>
                                     Logout
                                 </Button>
                             </div>

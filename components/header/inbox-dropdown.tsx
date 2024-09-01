@@ -37,7 +37,7 @@ export function InboxDropdown() {
     useEffect(() => {
         if (data) {
             const ids = data.map((c: any) => {
-                return currentUser._id === c.buyerId ? c.sellerId : c.buyerId;
+                return currentUser?._id === c.buyerId ? c.sellerId : c.buyerId;
             });
             setBuyerIds(ids);  // Set the array of buyer IDs
         }
@@ -67,8 +67,8 @@ export function InboxDropdown() {
     };
 
     const getBuyerData = (conversation: any) => {
-        const buyerId = currentUser._id === conversation.buyerId ? conversation.sellerId : conversation.buyerId;
-        return buyersData?.find((buyer: any) => buyer._id === buyerId);
+        const buyerId = currentUser?._id === conversation?.buyerId ? conversation?.sellerId : conversation?.buyerId;
+        return buyersData?.find((buyer: any) => buyer?._id === buyerId);
     };
 
     return (

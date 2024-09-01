@@ -13,10 +13,7 @@ import { Sheet, SheetContent, SheetTrigger } from "../ui/sheet";
 import SearchBar from "./search-bar";
 
 const routes = [
-    {
-        href: "/",
-        label: "Overview",
-    },
+
 
     {
         href: "/myOrders",
@@ -64,7 +61,7 @@ export const Navigation = () => {
 
     return (
         <nav className="flex items-center gap-x-2 overflow-x-auto">
-            <SearchBar />
+            {/* <SearchBar /> */}
             {
                 routes.map((route) => (
                     <NavButton

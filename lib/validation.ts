@@ -9,6 +9,14 @@ export const LoginFormValidation = z.object({
   password: z.string().min(5, "Password must be at least 5 characters"),
 });
 
+export const SearchFormValidation = z.object({
+  querySearch: z
+    .string()
+    .min(20, "Search should be atleast 20 characters long")
+    .max(2000, "Search should be at most 2000 characters long"),
+  budget: z.string(),
+});
+
 export const RegistationFormValidation = z.object({
   username: z
     .string()
@@ -22,10 +30,9 @@ export const RegistationFormValidation = z.object({
   country: z.string().optional(),
   isSeller: z.boolean().optional(),
 
-  profilePicture: z
-    .string()
-    .url("Profile picture must be a valid URL")
-    .min(1, "Profile picture is required"),
+  profilePicture: z.string(),
+  // .url("Profile picture must be a valid URL")
+  // .min(1, "Profile picture is required"),
 });
 
 export const SellerFormValidation = z.object({

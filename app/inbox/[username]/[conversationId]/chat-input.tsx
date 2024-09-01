@@ -18,6 +18,7 @@ const ChatInput = ({
     conversationId
 }: ChatInputProps) => {
     const editorRef = useRef<Quill | null>(null);
+
     return (
         <div className='px-5 w-full'>
             {/* <Editor variant='create'

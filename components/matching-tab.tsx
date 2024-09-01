@@ -24,7 +24,7 @@ import ShimmerButton from "./ui/ShimmerButton"
 
 export function MatchingTab() {
     return (
-        <Card className="w-[600px] -mt-24">
+        <Card className="w-[500px] ">
             <CardHeader>
                 <CardDescription>RECOMMENDED FOR YOU</CardDescription>
             </CardHeader>
@@ -38,8 +38,8 @@ export function MatchingTab() {
                         </div>
                     </div>
                     <Link href="/matching">
-                        <ShimmerButton className="shadow-2xl" background="#3b82f6" borderRadius="20px" >
-                            <span className="whitespace-pre-wrap text-center text-xs font-medium leading-none tracking-tight text-white dark:from-white dark:to-slate-900/10 lg:text-lg">
+                        <ShimmerButton className="shadow-2xl" background="#fed45f" borderRadius="20px" >
+                            <span className="whitespace-pre-wrap text-black text-center text-xs font-medium leading-none tracking-tight  dark:from-white dark:to-slate-900/10 lg:text-lg">
                                 Find Matching
                             </span>
                         </ShimmerButton>

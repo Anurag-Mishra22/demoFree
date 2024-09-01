@@ -74,7 +74,6 @@ const RegisterForm = () => {
         try {
             await newRequest.post("/auth/register", {
                 ...values,
-                img: ""
             });
             toast.success("Account created successfully");
             // router.push("/auth/login");
@@ -200,41 +199,42 @@ const RegisterForm = () => {
                                         <FormItem>
                                             <FormLabel>Profile Picture</FormLabel>
                                             <FormControl>
-                                                {
-                                                    image.length > 1 ? (
-                                                        <div className="flex gap-5">
-
-                                                            <div className="relative w-[100px] h-[100px]">
-                                                                <Image
-                                                                    height={100}
-                                                                    width={100}
-                                                                    src={image}
-                                                                    alt="Product Image"
-                                                                    className="w-full h-full object-cover rounded-lg border"
-                                                                />
-                                                                <button
-                                                                    onClick={() => handleDelete()}
-                                                                    type="button"
-                                                                    className="absolute -top-3 -right-3 bg-red-500 p-2 rounded-lg text-white">
-                                                                    <XIcon className="w-3 h-3" />
-                                                                </button>
-                                                            </div>
-
+                                                {image.length > 1 ? (
+                                                    <div className="flex gap-5">
+                                                        <div className="relative w-[100px] h-[100px]">
+                                                            <Image
+                                                                height={100}
+                                                                width={100}
+                                                                src={image}
+                                                                alt="Profile Picture"
+                                                                className="w-full h-full object-cover rounded-lg border"
+                                                            />
+                                                            <button
+                                                                onClick={() => {
+                                                                    handleDelete();
+                                                                    field.onChange(''); // Clear the form field value on delete
+                                                                }}
+                                                                type="button"
+                                                                className="absolute -top-3 -right-3 bg-red-500 p-2 rounded-lg text-white"
+                                                            >
+                                                                <XIcon className="w-3 h-3" />
+                                                            </button>
                                                         </div>
-                                                    ) : (
-                                                        <UploadDropzone endpoint="userImage" onClientUploadComplete={(res) => {
-                                                            setImage(res?.[0].url);
-
+                                                    </div>
+                                                ) : (
+                                                    <UploadDropzone
+                                                        endpoint="userImage"
+                                                        onClientUploadComplete={(res) => {
+                                                            const imageUrl = res?.[0].url;
+                                                            setImage(imageUrl);
+                                                            field.onChange(imageUrl); // Update the form field with the image URL
                                                         }}
-                                                            onUploadError={(error: Error) => {
-                                                                toast.error(`${error?.message}`);
-                                                            }}
-                                                        />
-                                                    )
-                                                }
-
+                                                        onUploadError={(error: Error) => {
+                                                            toast.error(`${error?.message}`);
+                                                        }}
+                                                    />
+                                                )}
                                             </FormControl>
-
                                             <FormMessage />
                                         </FormItem>
                                     )}

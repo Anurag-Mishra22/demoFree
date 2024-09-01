@@ -19,11 +19,11 @@ export const RenderContent = ({ descJson }: RenderContentProps) => {
         const ListTag = isOrdered ? 'ol' : 'ul';
         return (
             <ListTag className={`${isOrdered ? 'list-decimal' : 'list-disc'} list-outside pl-5 my-3 space-y-2`}>
-                {list.map((listItem: any, idx: number) => (
+                {list?.map((listItem: any, idx: number) => (
                     <li key={idx} className="text-gray-700 text-sm leading-relaxed">
-                        {listItem.content.map((contentItem: any, id: number) => (
+                        {listItem?.content?.map((contentItem: any, id: number) => (
                             <React.Fragment key={id}>
-                                {contentItem.type === 'paragraph' && contentItem.content.map((textItem: any, tid: number) => (
+                                {contentItem.type === 'paragraph' && contentItem?.content?.map((textItem: any, tid: number) => (
                                     <React.Fragment key={tid}>
                                         {textItem.type === 'text' && (
                                             <span className={textItem.marks && textItem.marks.some((mark: any) => mark.type === 'bold') ? 'font-medium' : ''}>
@@ -44,7 +44,7 @@ export const RenderContent = ({ descJson }: RenderContentProps) => {
 
     return (
         <div className="max-w-3xl mx-auto p-6 bg-white">
-            {content.map((item: any, index: number) => {
+            {content?.map((item: any, index: number) => {
                 if (item.type === 'heading') {
                     const headingClasses = {
                         1: 'text-3xl font-bold text-gray-800 mt-8 mb-4 pb-2 border-b border-gray-200',
@@ -54,7 +54,7 @@ export const RenderContent = ({ descJson }: RenderContentProps) => {
                     const HeadingTag = `h${item.attrs.level}` as keyof JSX.IntrinsicElements;
                     return (
                         <HeadingTag key={index} className={headingClasses[item.attrs.level as keyof typeof headingClasses]}>
-                            {item.content.map((textItem: any, idx: number) => (
+                            {item?.content?.map((textItem: any, idx: number) => (
                                 <span key={idx}>{textItem.text}</span>
                             ))}
                         </HeadingTag>

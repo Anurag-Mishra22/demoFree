@@ -44,10 +44,11 @@ export default function SocketOnConnect() {
     }, [username]);// Add username as a dependency
 
     return (
-        <div>
-            <p>Status: {isConnected ? "connected" : "disconnected"}</p>
-            <p>Transport: {transport}</p>
-            {error && <p>Error: {error}</p>}
-        </div>
+        // <div>
+        //     <p>Status: {isConnected ? "connected" : "disconnected"}</p>
+        //     <p>Transport: {transport}</p>
+        //     {error && <p>Error: {error}</p>}
+        // </div>
+        <></>
     );
 }

@@ -9,9 +9,11 @@ import {
     CardHeader,
     CardTitle,
 } from "@/components/ui/card"
+import { redirect } from 'next/navigation';
 
 const ConversationPage = ({ params }: { params: { username: string, conversationId: string } }) => {
     const { username, conversationId } = params;
+
 
     console.log(username, conversationId); // Logs the dynamic route parameters
 

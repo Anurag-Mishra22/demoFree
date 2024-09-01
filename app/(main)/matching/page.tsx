@@ -7,7 +7,7 @@ import React from 'react'
 
 const MatchingPages = () => {
     return (
-        <div className='mt-12 flex flex-col md:flex-row mb-12'>
+        <div className='mt-12 flex  mb-12'>
             <div>
                 <h1 className='text-4xl font-semibold'>Let the matching begin...</h1>
                 <p className='text-sm mt-16 text-[#74767e]'>This is where you fill us in on the big picture.</p>

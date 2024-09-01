@@ -56,8 +56,8 @@ const UserInfo = ({ sellerData }: UserInfoProps) => {
                 <div className='relative'>
                     <UserLogo src={sellerData?.profilePicture} />
                     <div className={cn(
-                        "absolute bottom-4 right-4  rounded-full w-2 h-2",
-                        sellerData?.online ? "bg-green-500" : "bg-gray-500"
+                        "absolute bottom-4 right-3  rounded-full w-4 h-4",
+                        sellerData?.online ? "bg-green-500  shadow-md" : "bg-gray-500 shadow-md"
                     )}></div>
                 </div>
                 <div className='flex flex-col gap-y-2'>

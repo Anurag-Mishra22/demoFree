@@ -107,7 +107,7 @@ const GigsPage = () => {
             <div className="flex items-baseline justify-between border-b border-gray-200 pb-6 pt-24">
                 <div className='flex flex-col gap-y-2'>
                     <h1 className="text-4xl font-bold tracking-tight">
-                        Fiverr Gigs® Directory
+                        YuvaWork Gigs® Directory
                     </h1>
                     <p className="text-gray-500">
                         One stop shop for all your needs
